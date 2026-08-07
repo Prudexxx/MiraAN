@@ -1,0 +1,23 @@
+{
+  "name": "Группа Мира",
+  "short_name": "Мира",
+  "description": "Расписание и служения группы Мира",
+  "start_url": "/MiraAN/",
+  "display": "standalone",
+  "theme_color": "#0a0f1e",
+  "background_color": "#0a0f1e",
+  "icons": [
+    {
+      "src": "/MiraAN/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/MiraAN/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
