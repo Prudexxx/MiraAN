@@ -2076,7 +2076,40 @@
         <img src="правила.png" alt="Правила телемоста"
             style="max-width: 90vw; max-height: 90vh; border-radius: 20px; border: 3px solid #ffd966;">
     </div>
-
+<script>
+    // Проверка версии страницы
+    (function checkVersion() {
+        const CURRENT_VERSION = '2.0.1';
+        const storedVersion = localStorage.getItem('site_version');
+        
+        if (storedVersion && storedVersion !== CURRENT_VERSION) {
+            console.log('Новая версия сайта! Очищаем кэш...');
+            localStorage.clear();
+            
+            // Очищаем все кэши
+            if ('caches' in window) {
+                caches.keys().then(keys => {
+                    keys.forEach(key => caches.delete(key));
+                });
+            }
+            
+            // Удаляем старый Service Worker
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    registrations.forEach(reg => reg.unregister());
+                });
+            }
+            
+            // Устанавливаем новую версию
+            localStorage.setItem('site_version', CURRENT_VERSION);
+            
+            // Перезагружаем через 1 секунду
+            setTimeout(() => window.location.reload(true), 1000);
+        } else if (!storedVersion) {
+            localStorage.setItem('site_version', CURRENT_VERSION);
+        }
+    })();
+</script>
 
 </body>
 
