@@ -1727,7 +1727,7 @@
                             let key = `${day}_${time === 'Утро' ? 'утро' : 'вечер'}`;
                             let savedValue = 'занято';
                             if (servicesData[serviceKey] && servicesData[serviceKey][key]) savedValue = servicesData[serviceKey][key];
-                            const isFree = savedValue === 'занято';
+                          const isFree = savedValue.toLowerCase().startsWith('занято');
                             html += `<div class="день-ячейка">
                             <span class="название-дня">${day}</span>
                             <span class="подзаголовок">${time}</span>
